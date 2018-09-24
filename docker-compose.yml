@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   etcd_snap:
-    image: thomasjpfan/etcd-snapshot:${TAG:-master}
+    image: thomasjpfan/etcd-minio-snapshot:${TAG:-master}
     networks:
       - minio
     environment:
@@ -13,7 +13,7 @@ services:
       - EMS_ETCD_OBJECT_NAME=hello.db
 
   etcd_no_snap:
-    image: thomasjpfan/etcd-snapshot:${TAG:-master}
+    image: thomasjpfan/etcd-minio-snapshot:${TAG:-master}
     networks:
       - minio
     environment:
