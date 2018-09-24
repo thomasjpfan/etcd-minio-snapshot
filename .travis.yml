@@ -30,10 +30,9 @@ script: >
   make unittest && make image &&
   docker-compose up -d && sh run_integration_tests.sh
 
-after_script: docker-compose down
+after_success: >
+  if [ "$TRAVIS_BRANCH" == "master" ]; then
+    bash scripts/docker_push.sh
+  fi
 
-deploy:
-  provider: script
-  script: bash scripts/docker_push.sh
-  on:
-    branch: master
+after_script: docker-compose down
