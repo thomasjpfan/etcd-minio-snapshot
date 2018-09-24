@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker_hub_name="thomasjpfan/etcd-snapshot"
+docker_hub_name="${DOCKER_USERNAME}/etcd-snapshot"
 
 master_image="${docker_hub_name}:master"
 latest_image="${docker_hub_name}:latest"
