@@ -1,10 +1,11 @@
 #!/bin/bash
 
 docker_hub_name="${DOCKER_USERNAME}/etcd-minio-snapshot"
+release_tag=$(date -u "+%Y-%m-%d-%H:%M:%S")
 
 master_image="${docker_hub_name}:master"
 latest_image="${docker_hub_name}:latest"
-release_image="${docker_hub_name}:${TRAVIS_COMMIT}"
+release_image="${docker_hub_name}:${release_tag}"
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
