@@ -26,16 +26,14 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
-jobs:
-  include:
-    - script: make unittest
-    - script: make image
-    - before_script: docker-compose up
-      script: sh run_integration_tests.sh
-      after_script: docker-compose down
+script: >
+  make unittest && make image &&
+  docker-compose up && sh run_integration_tests.sh
 
-# deploy:
-#   provider: script
-#   script: bash scripts/docker_push.sh
-#   on:
-#     branch: master
+after_script: docker-compose down
+
+deploy:
+  provider: script
+  script: bash scripts/docker_push.sh
+  on:
+    branch: master
