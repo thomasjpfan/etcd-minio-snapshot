@@ -7,4 +7,4 @@ unittest:
 	go test ./... --run UnitTest
 
 image:
-	docker image build -t thomasjpfan/etcd-snapshot:$(TAG) .
+	docker image build -t thomasjpfan/etcd-minio-snapshot:$(TAG) .
