@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker_hub_name="${DOCKER_USERNAME}/etcd-minio-snapshot"
-release_tag=$(date -u "+%Y-%m-%d-%H:%M:%S")
+release_tag=$(date -u "+%Y%m%dT%H%M%S")
 
 master_image="${docker_hub_name}:master"
 latest_image="${docker_hub_name}:latest"
