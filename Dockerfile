@@ -12,7 +12,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint
 COPY --from=builder /develop/download-etcd-snapshot /usr/local/bin/download-etcd-snapshot
 RUN chmod +x /usr/local/bin/download-etcd-snapshot /usr/local/bin/entrypoint
 
-VOLUME [ "/etcd-data" ]
+VOLUME [ "/etcd" ]
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=10 CMD [ "etcdctl", "endpoint" , "health"]
 
 CMD ["entrypoint"]
